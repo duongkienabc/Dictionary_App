@@ -34,8 +34,10 @@ public class DictionaryCommandLine {
         System.out.println("\t\t1. Insert word from Command Line. ");
         System.out.println("\t\t2. Show all words. ");
         System.out.println("\t\t3. Search word. ");
-        System.out.println("\t\t4. MiniGame. ");
-        System.out.println("\t\t5. Insert word from File");
+        System.out.println("\t\t4. Update word. ");
+        System.out.println("\t\t5. Remove word. ");
+        System.out.println("\t\t6. MiniGame. ");
+        System.out.println("\t\t7. Insert word from File");
         System.out.println("\t\t0. Exit. ");
 
         while (true) {
@@ -62,9 +64,23 @@ public class DictionaryCommandLine {
                     dictionaryManagement.dictionarySearcher(dictionary, word_target);
                     break;
                 case 4:
-                    // Thêm trò chơi
+                    System.out.println("Enter a word that needs to Update: ");
+                    String oldWord = sc.nextLine();
+                    System.out.println("Enter the new English word : ");
+                    String newWordTarget = sc.nextLine();
+                    System.out.println("Enter the new Vietnamese meaning : ");
+                    String newWordExplain = sc.nextLine();
+                    Word newWord = new Word(newWordTarget, newWordExplain);
+                    dictionaryManagement.dictionaryUpdate(dictionary,oldWord,newWord);
                     break;
                 case 5:
+                    System.out.println("Enter a word to delete: ");
+                    String deleteWord = sc.nextLine();
+                    dictionaryManagement.wordDelete(dictionary,deleteWord);
+                case 6:
+                    // Thêm trò chơi
+                    break;
+                case 7:
                     dictionaryManagement.insertFromFile(dictionary, "src/data/E_V.txt");
                     System.out.println("Words inserted from file successfully.");
                     break;
