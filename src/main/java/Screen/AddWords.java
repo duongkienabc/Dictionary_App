@@ -117,8 +117,8 @@ public class AddWords extends App {
             try {
                 BufferedWriter writer = new BufferedWriter(new FileWriter("src/data/Learn.txt", true));
                 // Định dạng lại chuỗi để hiển thị loại từ được tô màu và nghĩa theo đúng định dạng
-                String formattedMeaning = word + "<html><i>" + word + "</i><br/><ul><li><b><i> " + wordType + "</i></b><ul><li><font color='#cc0000'><b> " + meaning + "</b></font></li></ul></li></ul></html>";
-                writer.write(formattedMeaning + "\n");
+                String formattedMeaning = "<html><i>" + word + "</i><br/><ul><li><b><i> " + wordType + "</i></b><ul><li><font color='#cc0000'><b> " + meaning + "</b></font></li></ul></li></ul></html>";
+                writer.write(word + formattedMeaning + "\n");
                 writer.close();
                 Word newWord = new Word(word, "<html>" + formattedMeaning);
                 data.put(word, newWord);
