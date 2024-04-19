@@ -85,25 +85,20 @@ public class App extends Application {
     @FXML
     private Button buttonAW;
 
-//    @FXML
-//    public void switchtoAddWords(javafx.event.ActionEvent actionEvent) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Screen/AddWords.fxml"));
-//            Parent searchRoot = loader.load();
-//            ShowAllWords showController = loader.getController();
-//            showController. ;
-//            Stage stage = (Stage) buttonAW.getScene().getWindow();
-//            Scene searchScene = new Scene(searchRoot);
-//            stage.setScene(searchScene);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
-
-
-
+    @FXML
+    public void switchtoAddWords(javafx.event.ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Screen/AddWord.fxml"));
+            Parent searchRoot = loader.load();
+            AddWords showController = loader.getController();
+            showController.handleButtonSwap();
+            Stage stage = (Stage) buttonAW.getScene().getWindow();
+            Scene searchScene = new Scene(searchRoot);
+            stage.setScene(searchScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @FXML

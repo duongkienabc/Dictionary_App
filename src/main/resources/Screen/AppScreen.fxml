@@ -12,7 +12,7 @@
          <image>
             <Image url="@../Image/AppScreen.png" />
          </image></ImageView>
-      <Button fx:id="buttonAW" layoutX="427.0" layoutY="20.0" mnemonicParsing="false" opacity="0.0" prefHeight="70.0" prefWidth="77.0">
+      <Button fx:id="buttonAW" layoutX="427.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchtoAddWords" opacity="0.0" prefHeight="70.0" prefWidth="77.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
