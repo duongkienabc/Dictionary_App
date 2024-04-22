@@ -158,7 +158,7 @@ public class ShowAllWords extends App {
                 // Đọc từ dựa trên ngôn ngữ hiện tại
                 if (isEnglishVisible) {
                     // Đọc từ bằng tiếng Anh
-                    DictionaryCommandLine.api.Speech.EnglishAPISpeech(selectedWord);
+                    DictionaryCommandLine.api.Speech.UsualSpeech(selectedWord);
                 } else {
                     // Đọc từ bằng tiếng Việt
                     DictionaryCommandLine.api.Speech.VietnameseAPISpeech(selectedWord);
