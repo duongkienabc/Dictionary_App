@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -101,8 +102,13 @@ public class QuizController {
         // Display the first question
         displayCurrentQuestion();
 
+        correctSound = new MediaPlayer(new Media(getClass().getResource("/Game/Sound/correct.mp3").toExternalForm()));
+        wrongSound = new MediaPlayer(new Media(getClass().getResource("/Game/Sound/wrong.mp3").toExternalForm()));
+
         initializeTimer();
         timer.play();
+
+
     }
 
     private void updateQuestionCountLabel() {
@@ -259,6 +265,7 @@ public class QuizController {
         RadioButton selectedRadioButton = null;
         if (selectedOption.equals(correctAnswer)) {
             // Correct answer
+            correctSound.play();
             notificationLabel.setTextFill(Color.GREEN);
             notificationLabel.setText("Correct!");
             // Increment score
@@ -280,6 +287,7 @@ public class QuizController {
             displayNotificationForDuration(Duration.seconds(2));
         } else {
             // Incorrect answer
+            wrongSound.play();
             notificationLabel.setTextFill(Color.RED);
             notificationLabel.setText("Wrong!");
             // Highlight the selected incorrect option in red
