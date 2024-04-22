@@ -1,0 +1,34 @@
+What is the capital of France?;Paris;Madrid;Berlin;Rome;Paris
+Who wrote 'Romeo and Juliet'?;William Shakespeare;Charles Dickens;Jane Austen;Leo Tolstoy;William Shakespeare
+Which planet is known as the Red Planet?;Mercury;Venus;Mars;Jupiter;Mars
+What is the chemical symbol for water?;H;O;NaCl;H2O;H2O
+Who painted the Mona Lisa?;Leonardo da Vinci;Pablo Picasso;Vincent van Gogh;Claude Monet;Leonardo da Vinci
+What is the largest mammal in the world?;Elephant;Blue Whale;Giraffe;Lion;Blue Whale
+Which country is known as the Land of the Rising Sun?;China;India;Japan;South Korea;Japan
+What is the chemical symbol for gold?;Au;Ag;Hg;Pt;Au
+Who discovered penicillin?;Marie Curie;Alexander Fleming;Isaac Newton;Albert Einstein;Alexander Fleming
+Which famous physicist developed the theory of relativity?;Isaac Newton;Albert Einstein;Nikola Tesla;Galileo Galilei;Albert Einstein
+What is the plural form of "child"?;childs;childen;child's;children;children
+What is the past tense of "eat"?;eated;eatten;ate;eaten;ate
+Choose the correct form of the verb:
+I _______ to the gym every morning.;go;goes;goed;going;go
+Which word is a synonym for "happy"?;sad;joyful;angry;upset;joyful
+What is the opposite of "fast"?;slow;quick;rapid;speedy;slow
+Choose the correct preposition:
+She is sitting _______ the table.;in;on;at;by;at
+Certainly! Here are the questions with options and their respective answers:
+What is the comparative form of "big"?;biger;bigest;bigger;biggier;bigger
+Give the past tense of "sing".;singed;sang;sung;sings;sang
+What is the opposite of "happy"?;sad;joyful;angry;upset;sad
+Give a synonym for "beautiful".;ugly;pretty;handsome;lovely;pretty
+What is the possessive form of "dog"?;dogs;doges;dog's;dogies;dog's
+Write the gerund form of "swim".;swim;swam;swum;swimming;swimming
+What is the comparative form of "far"?;farther;further;farest;more far;farther
+Provide the correct preposition for the sentence: "The cat is sitting ______ the table.";in;on;at;by;on
+What does the acronym "USA" stand for?;United States of Africa;United States of America;United States of Asia;Union of South America;United States of America
+Which of these sentences is in the past tense?;She runs fast.;He will swim tomorrow.;They are eating lunch.;We played soccer yesterday.;We played soccer yesterday.
+Which word is a conjunction?;And;House;Happy;Quickly;And
+What is the past participle of the verb "to break"?;Breaking;Breaks;Broke;Broken;Broken
+What is the comparative form of the adjective "good"?;Best;Better;Gooder;Goodest;Better
+Who is credited with inventing the telephone?;Thomas Edison;Alexander Graham Bell;Nikola Tesla;Guglielmo Marconi;Alexander Graham Bell
+What is the tallest mountain in the world?;Mount Kilimanjaro;Mount Everest;K2;Mount McKinley;Mount Everest
