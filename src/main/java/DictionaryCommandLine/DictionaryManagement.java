@@ -3,40 +3,38 @@ package DictionaryCommandLine;
 import DictionaryCommandLine.Dictionary;
 import DictionaryCommandLine.Word;
 import DictionaryCommandLine.data.DictionaryFileIO;
+import DictionaryCommandLine.data.SQLDatabase;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class DictionaryManagement {
     public void insertFromCommandLine(Dictionary dictionary) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of words to insert: ");
+        int numOfWords = sc.nextInt();
+        sc.nextLine();
 
-        try {
-            System.out.println("Enter the number of words: ");
-            int numberOfWords = sc.nextInt();
-            sc.nextLine(); // Đọc ký tự newline sau khi đọc số nguyên
+        SQLDatabase sqlDatabase = new SQLDatabase();
+        for (int i = 0; i < numOfWords; i++) {
+            System.out.print("Enter English word #" + (i + 1) + ": ");
+            String wordTarget = sc.nextLine();
 
-            for (int i = 0; i < numberOfWords; i++) {
-                System.out.print("Enter English word #" + (i + 1) + ": ");
-                String wordTarget = sc.nextLine();
+            System.out.print("Enter Vietnamese meaning #" + (i + 1) + ": ");
+            String wordExplain = sc.nextLine();
 
-                System.out.print("Enter Vietnamese meaning #" + (i + 1) + ": ");
-                String wordExplain = sc.nextLine();
-
-                if (wordTarget.trim().isEmpty() || wordExplain.trim().isEmpty()) {
-                    System.out.println("Invalid input, word not added.");
-                    continue;
-                }
-
-                Word word = new Word(wordTarget, wordExplain);
-                dictionary.addWord(word);
-                System.out.println("Word added successfully.");
+            if (wordTarget.trim().isEmpty() || wordExplain.trim().isEmpty()) {
+                System.out.println("Invalid input, word not added.");
+                continue;
             }
-        } finally {
-            //sc.close(); // Đảm bảo rằng Scanner được đóng sau khi sử dụng
+
+            sqlDatabase.addWordFromDatabase(wordTarget, wordExplain);
+            System.out.println("Word added successfully.");
+
         }
     }
 
@@ -52,19 +50,6 @@ public class DictionaryManagement {
         }
         System.out.println("Words inserted from file successfully.");
     }
-
-//    public void lookUp(Dictionary dictionary) {
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Word to look up: ");
-//        String word_target = sc.nextLine();
-//        Word wordFound = dictionary.searchWord(word_target);
-//        if (wordFound != null) {
-//            System.out.println("Meaning: " + wordFound.getWord_explain());
-//        } else {
-//            System.out.println("Can not find this word. ");
-//        }
-//    }
-
     public ArrayList<Word> searchByFirstLetter(Dictionary dictionary, String prefix) {
         // Danh sách để lưu trữ kết quả tìm kiếm
         ArrayList<Word> results = new ArrayList<>();
@@ -86,9 +71,9 @@ public class DictionaryManagement {
         return results; // Trả về danh sách kết quả tổng hợp
     }
 
-    public void dictionarySearcher(Dictionary dictionary, String keyword) {
-        String lowerKeyWord = keyword.toLowerCase();
-        ArrayList<Word> searchResults = searchByFirstLetter(dictionary, lowerKeyWord);
+    public void dictionarySearcher(SQLDatabase sqlDatabase, String keyword) {
+        String lowerKeyword = keyword.toLowerCase();
+        List<Word> searchResults = sqlDatabase.searchByFirstLetter(lowerKeyword);
 
         if (!searchResults.isEmpty()) {
             for (Word word : searchResults) {
@@ -99,19 +84,16 @@ public class DictionaryManagement {
         }
     }
 
-    public void dictionaryUpdate(Dictionary dictionary, String oldWordTarget, Word newWord) {
-        // Gọi phương thức updateWord của đối tượng Dictionary để cập nhật từ
-        dictionary.updateWord(oldWordTarget, newWord);
 
-        // In thông báo xác nhận cập nhật thành công
+    public void dictionaryUpdate(Dictionary dictionary, String oldWordTarget, Word newWord) {
+        SQLDatabase sqlDatabase = new SQLDatabase();
+        sqlDatabase.replaceWordFromDatabase(oldWordTarget, newWord.getWord_explain());
         System.out.println("Updated word: " + oldWordTarget + " to " + newWord.getWord_target());
     }
 
     public void wordDelete(Dictionary dictionary, String wordTarget) {
-        // Gọi phương thức removeWord của đối tượng Dictionary để xóa từ
-        dictionary.removeWord(wordTarget);
-
-        // In thông báo xác nhận xóa thành công
+        SQLDatabase database = new SQLDatabase();
+        database.removeWordFromDatabase(wordTarget);
         System.out.println("Removed word: " + wordTarget);
     }
 
