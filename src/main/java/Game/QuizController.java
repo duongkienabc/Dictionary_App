@@ -57,26 +57,6 @@ public class QuizController {
 
     private int questionCount = 0;
 
-    @FXML
-    private void option1Selected(ActionEvent event) {
-        checkAnswer(option1.getText());
-    }
-
-    @FXML
-    private void option2Selected(ActionEvent event) {
-        checkAnswer(option2.getText());
-    }
-
-    @FXML
-    private void option3Selected(ActionEvent event) {
-        checkAnswer(option3.getText());
-    }
-
-    @FXML
-    private void option4Selected(ActionEvent event) {
-        checkAnswer(option4.getText());
-    }
-
     private PauseTransition correctAnswerTransition;
 
     @FXML
@@ -102,14 +82,21 @@ public class QuizController {
         // Display the first question
         displayCurrentQuestion();
 
-        correctSound = new MediaPlayer(new Media(getClass().getResource("/Game/Sound/correct.mp3").toExternalForm()));
-        wrongSound = new MediaPlayer(new Media(getClass().getResource("/Game/Sound/wrong.mp3").toExternalForm()));
+        initializeSoundEffects();
 
         initializeTimer();
         timer.play();
 
-
+        backgroundSound.play();
     }
+
+    private void initializeSoundEffects() {
+        correctSound = new MediaPlayer(new Media(getClass().getResource("/Game/Sound/correct.mp3").toExternalForm()));
+        wrongSound = new MediaPlayer(new Media(getClass().getResource("/Game/Sound/wrong.mp3").toExternalForm()));
+        backgroundSound = new MediaPlayer(new Media(getClass().getResource("/Game/Sound/background.mp3").toExternalForm()));
+        backgroundSound.setCycleCount(MediaPlayer.INDEFINITE); // Loop the background sound indefinitely
+    }
+
 
     private void updateQuestionCountLabel() {
         // Update question count label
@@ -147,14 +134,12 @@ public class QuizController {
         timer.play();
     }
 
-
     @FXML
     private void submitAnswer(ActionEvent event) {
         // Get the selected option
         String selectedOption = getSelectedOption();
 
         if (selectedOption != null) {
-            // Check the answer
             checkAnswer(selectedOption);
         } else {
             // No option selected, show an error message
@@ -172,6 +157,7 @@ public class QuizController {
 
     @FXML
     private void backToMenu(ActionEvent event) throws IOException {
+        backgroundSound.stop();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Return to Menu");
         alert.setHeaderText("Close this window and return to Menu?");
@@ -205,6 +191,7 @@ public class QuizController {
     }
 
     private void displayResult() {
+        backgroundSound.stop();
         // Display the final question for 3 seconds before showing the score screen
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(event -> {
@@ -263,11 +250,14 @@ public class QuizController {
         Question currentQuestion = questionList.get(currentQuestionIndex);
         String correctAnswer = currentQuestion.getCorrectAnswer();
         RadioButton selectedRadioButton = null;
+
+        correctSound.stop();
+        wrongSound.stop();
         if (selectedOption.equals(correctAnswer)) {
             // Correct answer
-            correctSound.play();
             notificationLabel.setTextFill(Color.GREEN);
             notificationLabel.setText("Correct!");
+            correctSound.play();
             // Increment score
             score += 10;
             updateScoreLabel();
@@ -287,9 +277,9 @@ public class QuizController {
             displayNotificationForDuration(Duration.seconds(2));
         } else {
             // Incorrect answer
-            wrongSound.play();
             notificationLabel.setTextFill(Color.RED);
             notificationLabel.setText("Wrong!");
+            wrongSound.play();
             // Highlight the selected incorrect option in red
             if (option1.getText().equals(selectedOption)) {
                 option1.setStyle("-fx-background-color: red;");
@@ -369,7 +359,6 @@ public class QuizController {
         } else if (option4.isSelected()) {
             return option4.getText();
         } else {
-            // No option selected
             return null;
         }
     }
