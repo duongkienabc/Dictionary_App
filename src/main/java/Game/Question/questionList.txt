@@ -16,7 +16,6 @@ Which word is a synonym for "happy"?;sad;joyful;angry;upset;joyful
 What is the opposite of "fast"?;slow;quick;rapid;speedy;slow
 Choose the correct preposition:
 She is sitting _______ the table.;in;on;at;by;at
-Certainly! Here are the questions with options and their respective answers:
 What is the comparative form of "big"?;biger;bigest;bigger;biggier;bigger
 Give the past tense of "sing".;singed;sang;sung;sings;sang
 What is the opposite of "happy"?;sad;joyful;angry;upset;sad
@@ -32,3 +31,18 @@ What is the past participle of the verb "to break"?;Breaking;Breaks;Broke;Broken
 What is the comparative form of the adjective "good"?;Best;Better;Gooder;Goodest;Better
 Who is credited with inventing the telephone?;Thomas Edison;Alexander Graham Bell;Nikola Tesla;Guglielmo Marconi;Alexander Graham Bell
 What is the tallest mountain in the world?;Mount Kilimanjaro;Mount Everest;K2;Mount McKinley;Mount Everest
+What is the largest ocean in the world?;Atlantic Ocean;Indian Ocean;Pacific Ocean;Arctic Ocean;Pacific Ocean
+Who wrote the novel "To Kill a Mockingbird"?;Harper Lee;J.K. Rowling;George Orwell;Mark Twain;Harper Lee
+Which planet is known as the "Blue Planet"?;Earth;Mars;Venus;Mercury;Earth
+Which city is known as the "City of Love"?;Paris;Rome;Venice;Barcelona;Paris
+What is the largest organ in the human body?;Liver;Heart;Brain;Skin;Skin
+Who is the first woman to win a Nobel Prize?;Marie Curie;Rosa Parks;Mother Teresa;Margaret Thatcher;Marie Curie
+Who is the author of "The Great Gatsby"?;F. Scott Fitzgerald;Ernest Hemingway;John Steinbeck;Virginia Woolf;F. Scott Fitzgerald
+Which animal is known as the "King of the Jungle"?;Lion;Tiger;Elephant;Gorilla;Lion
+Which continent is the largest by land area?;Africa;Asia;Europe;North America;Asia
+Who invented the light bulb?;Thomas Edison;Nikola Tesla;Benjamin Franklin;Alexander Graham Bell;Thomas Edison
+Who wrote the novel "1984"?;George Orwell;Aldous Huxley;J.R.R. Tolkien;H.G. Wells;George Orwell
+Identify the subject in the following sentence: "The cat chased the mouse.";Mouse;Chased;The;Cat;Cat
+What part of speech is the word "quickly"?;Verb;Noun;Adjective;Adverb;Adverb
+Which of the following is an example of a preposition?;Run;House;Under;Jump;Under
+Which sentence is grammatically correct?;He goed to the store yesterday.;She have been studying all day.;They is going to the party tonight.;We went to the beach last summer.
