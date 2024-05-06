@@ -82,7 +82,7 @@ public class SearchWords extends App {
         }
     }
 
-    public void init () {
+    public void init() {
         SearchWords context = this;
         this.listView.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
@@ -103,19 +103,13 @@ public class SearchWords extends App {
 
     @FXML
     private Button buttonBack;
+
     @FXML
     public void switchBack(javafx.event.ActionEvent actionEvent) {
         try {
-            // Load the previous screen's FXML file
             Parent previousRoot = FXMLLoader.load(getClass().getResource("/Screen/AppScreen.fxml"));
-
-            // Get the current stage
             Stage stage = (Stage) buttonBack.getScene().getWindow();
-
-            // Create a new scene with the previous root
             Scene previousScene = new Scene(previousRoot);
-
-            // Set the scene to the stage
             stage.setScene(previousScene);
         } catch (IOException e) {
             e.printStackTrace();
@@ -136,7 +130,6 @@ public class SearchWords extends App {
         imageEng.setVisible(check);
         imageVNese.setVisible(!check);
 
-        // Đọc dữ liệu từ file tương ứng dựa trên imageEng hiện tại
         try {
             if (imageEng.isVisible()) {
                 init();
@@ -150,35 +143,23 @@ public class SearchWords extends App {
             e.printStackTrace();
         }
 
-
-        // Tải lại danh sách từ và lọc từ
         loadWordList();
         filterWords();
     }
 
     @FXML
     private void SoundButtonAction() {
-        // Lấy từ được chọn trong ListView
         String selectedWord = listView.getSelectionModel().getSelectedItem();
-
-        // Nếu không có từ nào được chọn, bạn có thể xử lý theo cách bạn muốn
         if (selectedWord == null) {
             System.out.println("No word selected");
             return;
         }
-
-        // Xác định ngôn ngữ hiện tại dựa trên trạng thái của ImageView
         boolean isEnglishVisible = imageEng.isVisible();
-
-        // Tạo một thread mới để đọc từ
         new Thread(() -> {
             try {
-                // Đọc từ dựa trên ngôn ngữ hiện tại
                 if (isEnglishVisible) {
-                    // Đọc từ bằng tiếng Anh
                     DictionaryCommandLine.api.Speech.UsualSpeech(selectedWord);
                 } else {
-                    // Đọc từ bằng tiếng Việt
                     DictionaryCommandLine.api.Speech.VietnameseAPISpeech(selectedWord);
                 }
             } catch (Exception e) {
@@ -187,7 +168,6 @@ public class SearchWords extends App {
             }
         }).start();
     }
-
 
 
     public static void main(String[] args) {

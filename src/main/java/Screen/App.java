@@ -111,7 +111,6 @@ public class App extends Application {
         try {
             FXMLLoader loader = new FXMLLoader((getClass().getResource("/Screen/TranslateScreen.fxml")));
             Parent searchRoot = loader.load();
-//            Translate translateController = loader.getController();
             Stage stage = (Stage) buttonTrans.getScene().getWindow();
             Scene translateScene = new Scene(searchRoot);
             stage.setScene(translateScene);
