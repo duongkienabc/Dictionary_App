@@ -129,7 +129,7 @@ public class Translate extends App {
                     if (isVietnameseToEnglish) {
                         Speech.VietnameseAPISpeech(textToSpeak);
                     } else {
-                        Speech.UsualSpeech(textToSpeak);
+                        Speech.EnglishAPISpeech(textToSpeak);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -143,7 +143,7 @@ public class Translate extends App {
     @FXML
     private void soundButton2Clicked() {
         String textToSpeak = text_explain.getText();
-        if (textToSpeak != null && !textToSpeak.isEmpty()) { // Kiểm tra xem textToSpeak có được xác định không
+        if (textToSpeak != null && !textToSpeak.isEmpty()) {
             new Thread(() -> {
                 try {
                     if (isVietnameseToEnglish) {

@@ -51,24 +51,20 @@ public class DictionaryManagement {
         System.out.println("Words inserted from file successfully.");
     }
     public ArrayList<Word> searchByFirstLetter(Dictionary dictionary, String prefix) {
-        // Danh sách để lưu trữ kết quả tìm kiếm
         ArrayList<Word> results = new ArrayList<>();
 
-        // Tìm kiếm từ cụ thể bằng cách sử dụng phương thức searchWord
         Word foundWord = dictionary.searchWord(prefix);
         if (foundWord != null) {
-            // Thêm từ cụ thể vào danh sách kết quả nếu không đã tồn tại
             results.add(foundWord);
         }
-        // Tìm kiếm tất cả các từ có tiền tố (prefix) và thêm vào danh sách kết quả
+
         ArrayList<Word> wordsWithPrefix = dictionary.searchAllWords(prefix);
         for (Word word : wordsWithPrefix) {
-            // Kiểm tra nếu từ chưa tồn tại trong danh sách kết quả
             if (!results.contains(word)) {
                 results.add(word);
             }
         }
-        return results; // Trả về danh sách kết quả tổng hợp
+        return results;
     }
 
     public void dictionarySearcher(SQLDatabase sqlDatabase, String keyword) {
