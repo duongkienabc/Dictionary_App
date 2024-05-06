@@ -160,7 +160,7 @@ public class Translate extends App {
                     if (isVietnameseToEnglish) {
                         Speech.VietnameseAPISpeech(textToSpeak);
                     } else {
-                        Speech.EnglishAPISpeech(textToSpeak);
+                        Speech.UsualSpeech(textToSpeak);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

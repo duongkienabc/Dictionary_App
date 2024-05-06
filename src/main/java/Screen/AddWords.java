@@ -1,6 +1,7 @@
 package Screen;
 
 import DictionaryCommandLine.Word;
+import DictionaryCommandLine.api.Speech;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -199,5 +200,21 @@ public class AddWords extends App {
     public void handleButtonSwap() throws IOException {
         initialize();
         readWordsFromFiles();
+    }
+    @FXML
+    private Button soundButton;
+    @FXML
+    private void soundButtonAction() {
+        String selectedWord = listView.getSelectionModel().getSelectedItem();
+        new Thread(() -> {
+            try {
+                if (selectedWord != null && !selectedWord.trim().isEmpty()) {
+                    Speech.UsualSpeech(selectedWord);
+                }
+            }catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Error occurred while speaking the word");
+            }
+        }).start();
     }
 }

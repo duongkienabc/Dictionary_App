@@ -1,12 +1,16 @@
 package DictionaryCommandLine;
 
 
+import DictionaryCommandLine.data.SQLDatabase;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class DictionaryCommandLine {
     private static DictionaryManagement dictionaryManagement;
     private static Dictionary dictionary;
+    private static SQLDatabase sqlDatabase = new SQLDatabase();
 
     public DictionaryCommandLine() {
         dictionaryManagement = new DictionaryManagement();
@@ -14,7 +18,8 @@ public class DictionaryCommandLine {
     }
 
     public static void showAllWords() {
-        ArrayList<Word> words = dictionary.getWords();
+        SQLDatabase sqlDatabase = new SQLDatabase();
+        List<Word> words = sqlDatabase.insertWordFromDatabase();
         if (words.isEmpty()) {
             System.out.println("Dictionary is empty.");
         } else {
@@ -61,7 +66,7 @@ public class DictionaryCommandLine {
                 case 3:
                     System.out.print("Enter a word to search: ");
                     String word_target = sc.nextLine();
-                    dictionaryManagement.dictionarySearcher(dictionary, word_target);
+                    dictionaryManagement.dictionarySearcher(sqlDatabase, word_target);
                     break;
                 case 4:
                     System.out.println("Enter a word that needs to Update: ");
