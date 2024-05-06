@@ -100,9 +100,12 @@ public class App extends Application {
         }
     }
 
-
+    /**
+     * Switch to Translate .
+     */
     @FXML
     private Button buttonTrans;
+
     @FXML
     public void switchtoTranslate(ActionEvent actionEvent) {
         try {
@@ -117,6 +120,27 @@ public class App extends Application {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Switch to Game .
+     */
+    @FXML
+    private Button gamebutton;
+
+    @FXML
+    public void switchtoGame(javafx.event.ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Game/Home.fxml"));
+            Parent searchRoot = loader.load();
+            Stage stage = (Stage) gamebutton.getScene().getWindow();
+            Scene searchScene = new Scene(searchRoot);
+            stage.setScene(searchScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     /**
      * Out App.
      */
