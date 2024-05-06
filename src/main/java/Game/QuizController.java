@@ -165,11 +165,10 @@ public class QuizController {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Game/Menu.fxml"));
             Parent menuRoot = loader.load();
             Scene menuScene = new Scene(menuRoot);
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(menuScene);
             stage.show();
         }
