@@ -80,7 +80,7 @@ public class AddWords extends App {
         wordType.getItems().clear();
         wordType.getItems().addAll("Danh từ", "Động từ", "Tính từ", "Trạng từ", "Khác");
         wordType.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            // Do something when an item is selected
+
         });
         updateListView();
         boolean updateMeaning = true;
@@ -117,7 +117,6 @@ public class AddWords extends App {
         if (!word.isEmpty() && !meaning.isEmpty() && wordType != null) {
             try {
                 BufferedWriter writer = new BufferedWriter(new FileWriter("src/data/Learn.txt", true));
-                // Định dạng lại chuỗi để hiển thị loại từ được tô màu và nghĩa theo đúng định dạng
                 String formattedMeaning = "<html><i>" + word + "</i><br/><ul><li><b><i> " + wordType + "</i></b><ul><li><font color='#cc0000'><b> " + meaning + "</b></font></li></ul></li></ul></html>";
                 writer.write(word + formattedMeaning + "\n");
                 writer.close();
@@ -157,7 +156,6 @@ public class AddWords extends App {
     }
 
 
-    // Hiển thị nghĩa trong webView
     private void showMeaningInWebView(String meaning) {
         String htmlContent = "<html><body><p>" + meaning + "</p></body></html>";
         webView.getEngine().loadContent(htmlContent);
@@ -171,7 +169,7 @@ public class AddWords extends App {
             String[] parts = line.split("<html>");
             if (parts.length >= 2) {
                 String word = parts[0];
-                String meaning = parts[1]; // Không cần thêm "<html>" vào nghĩa
+                String meaning = parts[1];
                 Word wordObj = new Word(word, meaning);
                 data.put(word, wordObj);
             } else {
@@ -201,8 +199,10 @@ public class AddWords extends App {
         initialize();
         readWordsFromFiles();
     }
+
     @FXML
     private Button soundButton;
+
     @FXML
     private void soundButtonAction() {
         String selectedWord = listView.getSelectionModel().getSelectedItem();
@@ -211,7 +211,7 @@ public class AddWords extends App {
                 if (selectedWord != null && !selectedWord.trim().isEmpty()) {
                     Speech.UsualSpeech(selectedWord);
                 }
-            }catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("Error occurred while speaking the word");
             }
