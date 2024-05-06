@@ -94,7 +94,7 @@ public class QuizController {
         correctSound = new MediaPlayer(new Media(getClass().getResource("/Game/Sound/correct.mp3").toExternalForm()));
         wrongSound = new MediaPlayer(new Media(getClass().getResource("/Game/Sound/wrong.mp3").toExternalForm()));
         backgroundSound = new MediaPlayer(new Media(getClass().getResource("/Game/Sound/background.mp3").toExternalForm()));
-        backgroundSound.setCycleCount(MediaPlayer.INDEFINITE); // Loop the background sound indefinitely
+        backgroundSound.setCycleCount(MediaPlayer.INDEFINITE); // Loop the background sound
     }
 
 
@@ -108,9 +108,7 @@ public class QuizController {
             timeRemaining--;
             updateTimerLabel();
             if (timeRemaining <= 0) {
-                // Time's up, stop the timer
                 timer.stop();
-                // Add your logic for handling time's up event here
             }
         }));
         timer.setCycleCount(Timeline.INDEFINITE);
@@ -129,8 +127,8 @@ public class QuizController {
     }
 
     private void resetTimer() {
-        timeRemaining = 15; // Reset the timer to 60 seconds (adjust as needed)
-        updateTimerLabel(); // Update the timer label to display the new time
+        timeRemaining = 15; // Reset the timer to 15 seconds
+        updateTimerLabel(); // Update the timer label
         timer.play();
     }
 
@@ -142,7 +140,6 @@ public class QuizController {
         if (selectedOption != null) {
             checkAnswer(selectedOption);
         } else {
-            // No option selected, show an error message
             displayErrorMessage("Please select an option.");
         }
     }
@@ -191,7 +188,6 @@ public class QuizController {
 
     private void displayResult() {
         backgroundSound.stop();
-        // Display the final question for 3 seconds before showing the score screen
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(event -> {
             try {
@@ -289,21 +285,18 @@ public class QuizController {
             } else if (option4.getText().equals(selectedOption)) {
                 option4.setStyle("-fx-background-color: red;");
             }
-            // Display notification for 4 seconds
             displayNotificationForDuration(Duration.seconds(4));
         }
 
         questionCount++;
-        // Check if 10 questions answered
         if (questionCount == 10) {
-            // Display completion message
             displayResult();
             return; // Stop further execution
         }
 
         // Move to the next question after the notification duration
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
-            enableOptions(); // Enable options before moving to the next question
+            enableOptions();
             nextQuestion();
         }));
         timeline.play();
@@ -325,7 +318,6 @@ public class QuizController {
         option4.setDisable(true);
     }
 
-    // Method to enable option buttons
     private void enableOptions() {
         option1.setDisable(false);
         option2.setDisable(false);
@@ -340,7 +332,6 @@ public class QuizController {
             String formattedDateTime = now.format(formatter);
             String scoreData = formattedDateTime + " - " + ":  Score: " + score + "\n";
 
-            // Append the score data to a file named "Score.txt"
             Files.write(Paths.get("src/main/java/Game/History/Score.txt"), scoreData.getBytes(),
                     StandardOpenOption.APPEND);
         } catch (IOException e) {
