@@ -368,7 +368,6 @@ public class HangmanController {
     }
 
     public void selectNewWord() {
-        // Select a new random word
         int random = new Random().nextInt(list.length);
         String wordHint = list[random];
         String[] split = wordHint.split(";", 4);

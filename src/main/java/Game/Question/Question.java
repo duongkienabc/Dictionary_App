@@ -6,7 +6,6 @@ public class Question {
     private String questionText;
     private ArrayList<String> options = new ArrayList<>();
     private String correctAnswer;
-    private Boolean isCorrect;
     // Constructor
     public Question() {
     }
