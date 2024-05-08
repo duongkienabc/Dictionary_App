@@ -3,7 +3,8 @@ This is a project about our OOP course-build a Dictionary with Java. Our group's
 
 # Demo
 - ![Image Demo] (src/main/resources/Image/Demo.png)
--
+- ![img.png](img.png)
+- ![Video Demo] (https://drive.google.com/file/d/1POa-NZz3QaXg-zs0jHB93U9pOlpDM3R8/view);
 # Getting Started 
 **Note**: Make sure you have completed [JAVA basic Tutorial](https://www.w3schools.com/java/) and [Object-Oriented Programming](https://www.w3schools.com/java/java_oop.asp) or you are in the process of learning Java
 

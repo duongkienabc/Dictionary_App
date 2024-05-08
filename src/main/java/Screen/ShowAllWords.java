@@ -143,7 +143,7 @@ public class ShowAllWords extends App {
         new Thread(() -> {
             try {
                 if (isEnglishVisible) {
-                    DictionaryCommandLine.api.Speech.UsualSpeech(selectedWord);
+                    DictionaryCommandLine.api.Speech.EnglishAPISpeech(selectedWord);
                 } else {
                     DictionaryCommandLine.api.Speech.VietnameseAPISpeech(selectedWord);
                 }
