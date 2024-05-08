@@ -209,7 +209,7 @@ public class AddWords extends App {
         new Thread(() -> {
             try {
                 if (selectedWord != null && !selectedWord.trim().isEmpty()) {
-                    Speech.UsualSpeech(selectedWord);
+                    Speech.EnglishAPISpeech(selectedWord);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
